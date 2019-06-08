@@ -48,7 +48,17 @@ ogg:'',
 		audio, timeout, isPlaying, playCounts;
 
 	var play = function(){
-		audio.play();
+		var playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                      // Automatic playback started!
+                      // Show playing UI.
+                    })
+                  .catch(error => {
+                      audio.pause();
+                      setTimeout(function() { audio.play(); }, 500); 
+                      });
+                }
 		$('.playback').addClass('playing');
 		timeout = setInterval(updateProgress, 500);
 		isPlaying = true;
