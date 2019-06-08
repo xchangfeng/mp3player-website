@@ -1,6 +1,7 @@
 import eyed3
 import os
 import re
+import random
 #help(eyed3)
 mp3path = "./mp3/"
 imgpath = "./img/"
@@ -15,14 +16,24 @@ for f in files:
   #是mp3再处理相关程序
   if os.path.splitext(f)[1] == ".mp3" :
     mySong = eyed3.load(mp3path + f)
+    #print(mySong.tag.album)
     #print("title:" + re.escape(mySong.tag.title))
     flist.writelines("{")
     flist.write("\n")
-    flist.writelines("title:" + "'" + re.escape(mySong.tag.title) + "',")
+    if mySong.tag.title :
+      flist.writelines("title:" + "'" + re.escape(mySong.tag.title) + "',")
+    else:
+      flist.writelines("title:" + "'" + "Unknown" + "',")
     flist.write("\n")
-    flist.writelines("artist:" + "'" + re.escape(mySong.tag.artist) + "',")
+    if mySong.tag.artist :
+      flist.writelines("artist:" + "'" + re.escape(mySong.tag.artist) + "',")
+    else:
+      flist.writelines("artist:" + "'" + "Unknown" + "',")
     flist.write("\n")
-    flist.writelines("album:" + "'" + re.escape(mySong.tag.album) + "',")
+    if mySong.tag.album :
+      flist.writelines("album:" + "'" + re.escape(mySong.tag.album) + "',")
+    else:
+      flist.writelines("album:" + "'" + "Unknown" + "',")
     flist.write("\n")  
     #如果存在照片，则把照片存到img用于显示，如果没有的话，就用默认的3.jpg做封面
     #print(len(mySong.tag.images))
@@ -43,7 +54,8 @@ for f in files:
       flist.writelines("cover:" + "'" + re.escape(writepath[2:]) + "',")
       flist.write("\n")
     else:
-      flist.writelines("cover:" + "'" +"img/3.jpg" + "',")
+      num = random.randint(1,12)
+      flist.writelines("cover:" + "'" +"img/" + str(num) +".jpg" + "',")
       flist.write("\n")
     flist.writelines("mp3:" + "'" + re.escape(mp3path[2:] + f) + "',")
     flist.write("\n")
