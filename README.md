@@ -1,4 +1,4 @@
-#mp3 player website
+# mp3 player website
 
 ## introduction
 It is a full website that play music. All the music files are within the server of the website.
@@ -12,12 +12,13 @@ Now, it only suport .mp3 files and the music files are all in the mp3 folders. I
 
 Due to the size of this repositories, it just contain three songs. It could add more songs if you like.
 由于代码库大小的问题，我们只放了三首歌。实际使用时，可以想放多少放多少。
-
-##rely on
+## live demo
+The live demo is on https://xiayuxi.com
+## rely on
 nginx / Apache
 python package : eyed3 (https://github.com/nicfit/eyeD3)
 
-##install
+## install
 The simpe way to apply the website is like this. if there is no eyed3 package, when running `python3 genelist.py`, it would be an error. please install eyed3 first: `pip3 install eyed3`.
 简单的步骤如下所示。如果没有eyed3包，那么在运行`python3 genelist.py`时会报错，那么应该先安装好eyed3包： `pip3 install eyed3`.
 
@@ -28,7 +29,7 @@ The simpe way to apply the website is like this. if there is no eyed3 package, w
     
 然后还需要修改nginx或apache的配置文件，使得网页指向正确的位置。
 
-##reference
+## reference
 This website was inpired by https://github.com/dylanbai8/V2Ray_ws-tls_Website_onekey. It only has one song on it. So it change it a litter bit to support more songs on it.
 这个网站受这个项目启发：https://github.com/dylanbai8/V2Ray_ws-tls_Website_onekey. 但这上面只有一首歌，所以我稍做了一些变化，让它支持多首歌。
 
