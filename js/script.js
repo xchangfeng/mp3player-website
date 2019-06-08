@@ -6,22 +6,6 @@
 		autoplay = true,
 		playlist = [
 {
-title:'That\'s\ Why\ You\ Go\ Away',
-artist:'Michael\ Learns\ To\ Rock',
-album:'Love\ 101\ \:\ 101\ Ways\ To\ Say\ I\ Love\ You',
-cover:'img\/Michael\ Learns\ To\ Rock\ \-\ That\'s\ Why\ You\ Go\ Away\.png',
-mp3:'mp3\/Michael\ Learns\ To\ Rock\ \-\ That\'s\ Why\ You\ Go\ Away\.mp3',
-ogg:'',
-},
-{
-title:'Better\ Man',
-artist:'Robbie\ Williams',
-album:'Sing\ When\ You\'re\ Winning',
-cover:'img\/Robbie\ Williams\ \-\ Better\ Man\.jpg',
-mp3:'mp3\/Robbie\ Williams\ \-\ Better\ Man\.mp3',
-ogg:'',
-},
-{
 title:'City\ Of\ Stars\ \-\ From\ \"La\ La\ Land\"\ Soundtrack',
 artist:'Ryan\ Gosling\/Emma\ Stone',
 album:'La\ La\ Land\ \(Original\ Motion\ Picture\ Soundtrack\)',
@@ -43,14 +27,6 @@ artist:'\陈\奕\迅',
 album:'\不\想\放\手',
 cover:'img\/\陈\奕\迅\ \-\ \不\要\说\话\.jpg',
 mp3:'mp3\/\陈\奕\迅\ \-\ \不\要\说\话\.mp3',
-ogg:'',
-},
-{
-title:'You\'re\ Beautiful',
-artist:'James\ Blunt',
-album:'So\ Beautiful\ 1',
-cover:'img\/James\ Blunt\ \-\ You\'re\ Beautiful\.png',
-mp3:'mp3\/James\ Blunt\ \-\ You\'re\ Beautiful\.mp3',
 ogg:'',
 },
 ];
