@@ -33,7 +33,12 @@ ogg:'',
 
 	// Load playlist
 	for (var i=0; i<playlist.length; i++){
-		var item = playlist[i];
+                var pos = Math.floor(Math.random() * (playlist.length - i));
+		var item = playlist[pos];
+                var deletes = playlist.splice(pos, 1);
+                //console.log(deletes);
+                //console.log(playlist);
+                playlist=playlist.concat(deletes);
 		$('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
 	}
 
