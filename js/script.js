@@ -56,7 +56,7 @@ ogg:'',
                     })
                   .catch(error => {
                       audio.pause();
-                      setTimeout(function() { audio.play(); }, 500); 
+                      //setTimeout(function() { audio.play(); }, 500); 
                       });
                 }
 		$('.playback').addClass('playing');
