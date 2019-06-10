@@ -202,6 +202,7 @@ ogg:'',
 		    } else {
 			play();
 		    }
+                    return false; 
                 }
          });
 	$('.playback').on('click', function(){
