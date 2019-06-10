@@ -55,7 +55,7 @@ ogg:'',
                       // Show playing UI.
                     })
                   .catch(error => {
-                      audio.pause();
+                      pause();
                       //setTimeout(function() { audio.play(); }, 500); 
                       });
                 }
@@ -194,6 +194,16 @@ ogg:'',
 	}
 
 	loadMusic(currentTrack);
+        $(document).keydown(function(e){
+                var e = e || window.event;
+                if(e.keyCode==32){  //按键 ASCII 码值  
+                    if ($('.playback').hasClass('playing')){
+			pause();
+		    } else {
+			play();
+		    }
+                }
+         });
 	$('.playback').on('click', function(){
 		if ($(this).hasClass('playing')){
 			pause();
