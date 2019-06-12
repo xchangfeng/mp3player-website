@@ -229,7 +229,8 @@ ogg:'',
 	$('#playlist li').each(function(i){
 		var _i = i;
 		$(this).on('click', function(){
-			switchTrack(_i);
+                        currentTrack = _i;
+			switchTrack(currentTrack);
 		});
 	});
 
