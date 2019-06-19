@@ -196,13 +196,27 @@ ogg:'',
 	loadMusic(currentTrack);
         $(document).keydown(function(e){
                 var e = e || window.event;
-                if(e.keyCode==32){  //按键 ASCII 码值  
+                if(e.keyCode==32){  //按键 space ASCII 码值  
                     if ($('.playback').hasClass('playing')){
 			pause();
 		    } else {
 			play();
 		    }
                     return false; 
+                }
+                else if(e.keyCode==37){  //按键 left arrow ASCII 码值  
+                    if (shuffle === 'true'){
+			shufflePlay();
+		    } else {
+			switchTrack(--currentTrack);
+                    }
+                }
+                else if(e.keyCode==39){  //按键 right arrow ASCII 码值  
+                    if (shuffle === 'true'){
+			shufflePlay();
+		    } else {
+			switchTrack(++currentTrack);
+                    }
                 }
          });
 	$('.playback').on('click', function(){
