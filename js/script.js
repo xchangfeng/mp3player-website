@@ -39,7 +39,7 @@ ogg:'',
                 //console.log(deletes);
                 //console.log(playlist);
                 playlist=playlist.concat(deletes);
-		$('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
+		//$('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
 	}
 
 	var time = new Date(),
@@ -185,6 +185,8 @@ ogg:'',
 		$('.cover').html('<img src="'+item.cover+'" alt="'+item.album+'">');
 		$('.tag').html('<strong>'+item.title+'</strong><span class="artist">'+item.artist+'</span><span class="album">'+item.album+'</span>');
 		$('#playlist li').removeClass('playing').eq(i).addClass('playing');
+                $('#playlist').empty();
+                $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
 		audio = newaudio[0];
 		audio.volume = $('.mute').hasClass('enable') ? 0 : volume;
 		audio.addEventListener('progress', beforeLoad, false);
