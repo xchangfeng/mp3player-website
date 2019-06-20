@@ -2,6 +2,7 @@
 	// Settings
 	var repeat = localStorage.repeat || 0,
 		shuffle = localStorage.shuffle || 'false',
+                list = localStorage.list & 'false',
 		continous = true,
 		autoplay = true,
 		playlist = [
@@ -41,6 +42,24 @@ ogg:'',
                 playlist=playlist.concat(deletes);
 		//$('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
 	}
+        var listing = function(value){
+            if(list === 'true'){
+              $('#playlist').empty();
+              for (var i=0; i<playlist.length; i++){
+		  var item = playlist[i];                
+		  $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
+	      }
+              $('#playlist li').removeClass('playing').eq(value).addClass('playing');  
+            }
+            else{
+               var item = playlist[value];
+               $('#playlist').empty();
+               $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
+	       $('#playlist li').removeClass('playing').eq(0).addClass('playing');
+            } 
+        }
+
+        
 
 	var time = new Date(),
 		currentTrack = shuffle === 'true' ? time.getTime() % playlist.length : 0,
@@ -184,9 +203,10 @@ ogg:'',
 		
 		$('.cover').html('<img src="'+item.cover+'" alt="'+item.album+'">');
 		$('.tag').html('<strong>'+item.title+'</strong><span class="artist">'+item.artist+'</span><span class="album">'+item.album+'</span>');
-                $('#playlist').empty();
-                $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
-		$('#playlist li').removeClass('playing').eq(0).addClass('playing');
+                //$('#playlist').empty();
+                //$('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
+		//$('#playlist li').removeClass('playing').eq(0).addClass('playing');
+                listing(i);
                 
 		audio = newaudio[0];
 		audio.volume = $('.mute').hasClass('enable') ? 0 : volume;
@@ -278,6 +298,17 @@ ogg:'',
 		} else {
 			shuffle = localStorage.shuffle = 'true';
 			$(this).addClass('enable');
+		}
+	});
+	$('.list').on('click', function(){
+		if ($(this).hasClass('enable')){
+			list = localStorage.list = 'false';
+			$(this).removeClass('enable');
+                        listing(currentTrack);
+		} else {
+			list = localStorage.list = 'true';
+			$(this).addClass('enable');
+                        listing(currentTrack);
 		}
 	});
 })(jQuery);
