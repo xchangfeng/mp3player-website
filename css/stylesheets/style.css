@@ -39,8 +39,8 @@ a { outline: none; text-decoration: none; }
 #player .ctrl .control .volume .slider { margin-top: 11px; margin-left: 10px; width: 100px; }
 #player .ctrl .progress { margin-top: 10px; }
 #player .ctrl .progress .timer { font-size: 12px; color: #ccc; margin-top: 8px; }
-#player .ctrl .progress .repeat, #player .ctrl .progress .shuffle { background-position: center bottom; }
-#player .ctrl .progress .list { background-position: left bottom; }
+*#player .ctrl .progress .list, #player .ctrl .progress .repeat, #player .ctrl .progress .shuffle { background-position: center bottom; }
+/*#player .ctrl .progress .list {position: center bottom; }*/
 #player .ctrl .progress .repeat { background-image: url(../images/repeat.png); }
 #player .ctrl .progress .repeat.once, #player .ctrl .progress .repeat.all { opacity: 1; }
 #player .ctrl .progress .repeat.once { position: relative; }
