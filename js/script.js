@@ -44,19 +44,21 @@ ogg:'',
 	}
         var listing = function(value){
             if(list === 'true'){
-              $('#playlist').empty();
-              for (var i=0; i<playlist.length; i++){
-		  var item = playlist[i];                
-		  $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
-	      }
+              if($('#playlist li').length != playlist.length){
+                  $('#playlist').empty();
+                  for (var i=0; i<playlist.length; i++){
+		      var item = playlist[i];                
+		      $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
+	          }                 
+                  $('#playlist li').each(function(i){
+		      var _i = i;
+		      $(this).on('click', function(){
+                          currentTrack = _i;
+			  switchTrack(currentTrack);
+		      });
+	          });            
+              }  
               $('#playlist li').removeClass('playing').eq(value).addClass('playing');
-              $('#playlist li').each(function(i){
-		  var _i = i;
-		  $(this).on('click', function(){
-                        currentTrack = _i;
-			switchTrack(currentTrack);
-		 });
-	      });  
             }
             else{
                var item = playlist[value];
