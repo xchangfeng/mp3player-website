@@ -49,7 +49,14 @@ ogg:'',
 		  var item = playlist[i];                
 		  $('#playlist').append('<li>'+item.artist+' - '+item.title+'</li>');
 	      }
-              $('#playlist li').removeClass('playing').eq(value).addClass('playing');  
+              $('#playlist li').removeClass('playing').eq(value).addClass('playing');
+              $('#playlist li').each(function(i){
+		  var _i = i;
+		  $(this).on('click', function(){
+                        currentTrack = _i;
+			switchTrack(currentTrack);
+		 });
+	      });  
             }
             else{
                var item = playlist[value];
@@ -262,7 +269,7 @@ ogg:'',
 		} else {
 			switchTrack(++currentTrack);
 		}
-	});
+	});       
 	$('#playlist li').each(function(i){
 		var _i = i;
 		$(this).on('click', function(){
