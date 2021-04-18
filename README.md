@@ -15,9 +15,9 @@ Due to the size of this repositories, it only contain three songs. Actually，yo
 由于代码库大小的问题，我们只放了三首歌。实际使用时，可以根据存储空间大小想放多少放多少。
 
 ## live demo
-The live demo is on https://xiayuxi.com
+The live demo is on https://www.xiayuxi.com
 
-实时的演示网站位于：https://xiayuxi.com
+实时的演示网站位于：https://www.xiayuxi.com
 
 ## rely on
 nginx / Apache
